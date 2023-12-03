@@ -21,7 +21,7 @@ public:
     pcl::PointCloud<pcl::PointXYZ>::Ptr recordSensorData(const std::vector<MyPoint>& customPointCloud);
 
     // Function to manage export of maps and pose data
-    void exportData(const std::map<std::string, std::string>& mapData, const std::string& poseData);
+    void SaveData(const std::map<std::string, std::string>& mapData, const std::string& poseData);
 
 
 private:
