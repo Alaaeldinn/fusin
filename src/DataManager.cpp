@@ -27,14 +27,12 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr DataManager::recordSensorData(const std::vec
     return pclPointCloud;
 }
 
-
-// Define function to manage export of maps and pose data
-void DataManager::exportData() {
-    // Create a point cloud data structure (e.g., pcl::PointCloud<pcl::PointXYZ>)
-    pcl::PointCloud<pcl::PointXYZ> sensorData;
+void DataManager::SaveData(const std::vector<MyPoint>& customPointCloud) {
+    // Record sensor data and obtain point cloud
+    pcl::PointCloud<pcl::PointXYZ>::Ptr pclPointCloud = recordSensorData(customPointCloud);
 
     // Save point cloud data to a PCD file
-    pcl::io::savePCDFileASCII("sensor_data.pcd", sensorData);
-    
+    pcl::io::savePCDFileASCII("sensor_data.pcd", *pclPointCloud);
 }
+
 
