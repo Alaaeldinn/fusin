@@ -9,9 +9,15 @@ DataManager& DataManager::getInstance() {
 }
 
 // Define function to record and save sensor data
-void DataManager::recordSensorData(const std::string& data) {
-    // Implementation for recording and saving sensor data
-    std::cout << "Recording sensor data: " << data << std::endl;
+// DataManager.cpp (Source code file)
+
+void DataManager::recordSensorData() {
+
+    // Create a point cloud data structure (e.g., pcl::PointCloud<pcl::PointXYZ>)
+    pcl::PointCloud<pcl::PointXYZ> sensorData;
+
+    // Save point cloud data to a PCD file
+    pcl::io::savePCDFileASCII("sensor_data.pcd", sensorData);
 }
 
 // Define function to manage export of maps and pose data
