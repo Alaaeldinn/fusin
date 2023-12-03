@@ -32,11 +32,11 @@ public:
     }
 
     void matchFeatures(const std::vector<double>& features) override {
-        std::cout << "Default matching features from different SLAM algorithms.\n";
+        std::cout << "Default matching features from different SLAM algorithms.";
     }
 
     void applyFilter(const std::vector<double>& fusedData) override {
-        std::cout << "Default generic filtering mechanism for sensor data fusion.\n";
+        std::cout << "Default generic filtering mechanism for sensor data fusion.";
     }
 
     void handleOutliers(const std::vector<double>& data) override {
