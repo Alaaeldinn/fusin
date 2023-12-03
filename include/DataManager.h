@@ -1,5 +1,10 @@
-#ifndef DATA_MANAGER_H
-#define DATA_MANAGER_H
+// DataManager.h (Header file for your source code)
+#ifndef DATAMANAGER_H
+#define DATAMANAGER_H
+
+#include "thirdparty/pcl/point_cloud.h"
+#include "thirdparty/pcl/io/pcd_io.h"
+#include "thirdparty/pcl/point_types.h"
 
 #include <iostream>
 #include <map>
@@ -10,7 +15,7 @@ public:
     static DataManager& getInstance();
 
     // Function to record and save sensor data
-    void recordSensorData(const std::string& data);
+    void recordSensorData();
 
     // Function to manage export of maps and pose data
     void exportData(const std::map<std::string, std::string>& mapData, const std::string& poseData);
