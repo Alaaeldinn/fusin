@@ -6,8 +6,11 @@
 #include "thirdparty/pcl/io/pcd_io.h"
 #include "thirdparty/pcl/point_types.h"
 
-#include <iostream>
-#include <map>
+struct MyPoint
+{
+    float x, y, z;
+    // Add other fields if necessary
+};
 
 class DataManager {
 public:
@@ -15,16 +18,11 @@ public:
     static DataManager& getInstance();
 
     // Function to record and save sensor data
-    void recordSensorData();
+    pcl::PointCloud<pcl::PointXYZ>::Ptr recordSensorData(const std::vector<MyPoint>& customPointCloud);
 
     // Function to manage export of maps and pose data
     void exportData(const std::map<std::string, std::string>& mapData, const std::string& poseData);
 
-    // Function to support standard data formats
-    void supportStandardFormats();
-
-    // Function to provide tools for efficient data storage and retrieval
-    void efficientDataStorage();
 
 private:
     // Private constructor to prevent instantiation
