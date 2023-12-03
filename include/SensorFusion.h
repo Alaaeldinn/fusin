@@ -1,6 +1,6 @@
 #ifndef SENSORFUSION_H
 #define SENSORFUSION_H
-
+#include <iostream>
 #include <vector>
 
 class SensorFusion {
