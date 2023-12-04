@@ -1,5 +1,4 @@
 #include "include/MapVisualizer.h"
-#include <iostream>
 
 void MapVisualizer::update() {
     displayRealTimeMap();
