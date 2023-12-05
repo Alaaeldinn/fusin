@@ -23,7 +23,18 @@ void MapVisualizer::displayRealTimeMap(const open3d::geometry::PointCloud &point
 }
 
 void MapVisualizer::switchMap(int type) {
-    std::cout << "Switching to map type: " << type << std::endl;
+    if (type == 2) {
+        // Switch to 2D point cloud visualization
+        std::cout << "Switching to 2D point cloud visualization..." << std::endl;
+        // Implement the 2D visualization logic here
+    } else if (type == 3) {
+        // Switch to 3D point cloud visualization
+        std::cout << "Switching to 3D point cloud visualization..." << std::endl;
+        // Implement the 3D visualization logic here
+    } else {
+        // Handle invalid type
+        std::cerr << "Invalid type. Cannot switch map." << std::endl;
+    }
 }
 
 void MapVisualizer::visualizeRobotPose(double pose, double uncertainty) {
