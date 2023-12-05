@@ -50,15 +50,20 @@ void MapVisualizer::display2dPoint() {
 }
 
 void MapVisualizer::switchMap(int type) {
-    if (type == 2) {
-        display2dPoint();
-    } else if (type == 3) {
-        display3dPoint();
-    } else {
-        // Handle invalid type
-        std::cerr << "Invalid type. Cannot switch map." << std::endl;
+    try {
+        if (type == 2) {
+            display2dPoint();
+        } else if (type == 3) {
+            display3dPoint();
+        } else {
+            // Handle invalid type
+            throw std::invalid_argument("Invalid map type. Cannot switch map.");
+        }
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 }
+
 
     
 open3d::geometry::PointCloud visualizeRobotPose() {
