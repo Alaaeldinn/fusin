@@ -36,10 +36,21 @@ void MapVisualizer::switchMap(int type) {
         std::cerr << "Invalid type. Cannot switch map." << std::endl;
     }
 }
+    
+open3d::geometry::PointCloud visualizeRobotPose() {
+        // Create a point cloud
+        open3d::geometry::PointCloud pointCloud;
 
-void MapVisualizer::visualizeRobotPose(double pose, double uncertainty) {
-    std::cout << "Visualizing robot pose: " << pose << " with uncertainty: " << uncertainty << std::endl;
+        // Set robot pose (replace these values with your actual robot pose)
+        Eigen::Vector3d robotPose(0.0, 0.0, 0.0);
+
+        // Add a single point to represent the robot pose
+        pointCloud.points_.push_back(robotPose);
+
+        // Return the created point cloud
+        return pointCloud;
 }
+
 
 void MapVisualizer::zoomIn() {
     std::cout << "Zooming in..." << std::endl;
