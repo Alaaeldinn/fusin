@@ -51,9 +51,9 @@ void MapVisualizer::display2dPoint() {
 
 void MapVisualizer::switchMap(int type) {
     try {
-        if (type == 2) {
+        if (type == TWO_D_MAP) {
             display2dPoint();
-        } else if (type == 3) {
+        } else if (type == THREE_D_MAP) {
             display3dPoint();
         } else {
             // Handle invalid type
