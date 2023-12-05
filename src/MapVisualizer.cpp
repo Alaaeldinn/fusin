@@ -74,12 +74,3 @@ open3d::geometry::PointCloud visualizeRobotPose() {
         // Return the created point cloud
         return pointCloud;
 }
-
-
-void MapVisualizer::zoomIn() {
-    std::cout << "Zooming in..." << std::endl;
-}
-
-void MapVisualizer::zoomOut() {
-    std::cout << "Zooming out..." << std::endl;
-}
