@@ -4,7 +4,7 @@ void MapVisualizer::update() {
     displayRealTimeMap();
 }
 
-void MapVisualizer::displayRealTimeMap(const open3d::geometry::PointCloud &point_cloud) {
+void MapVisualizer::display3dPoint(const open3d::geometry::PointCloud &point_cloud) {
     open3d::visualization::Visualizer visualizer;
     visualizer.CreateVisualizerWindow("Real-Time Point Cloud Map", 1280, 720);
     // Add the point cloud to the visualizer
@@ -15,6 +15,34 @@ void MapVisualizer::displayRealTimeMap(const open3d::geometry::PointCloud &point
 
     // Run the visualization loop
     // main while loop
+    while (!visualizer.WasStopped()) {
+        visualizer.UpdateGeometry();
+        visualizer.PollEvents();
+        visualizer.UpdateRender();
+    }
+}
+
+
+void MapVisualizer::display2dPoint(const open3d::geometry::PointCloud &point_cloud) {
+    // Create a visualization window
+    open3d::visualization::Visualizer visualizer;
+    visualizer.CreateVisualizerWindow("Real-Time Point Cloud Map", 1280, 720);
+
+    // Project the 3D point cloud onto the XY plane (set z component to zero)
+    open3d::geometry::PointCloud projected_point_cloud;
+    projected_point_cloud.points_ = point_cloud.points_;
+    for (auto &point : projected_point_cloud.points_) {
+        point[2] = 0.0;
+    }
+
+    // Add the 2D point cloud to the visualizer
+    visualizer.AddGeometry(projected_point_cloud);
+
+    // Set up the rendering options (optional)
+    open3d::visualization::RenderOption &ro = visualizer.GetRenderOption();
+    ro.point_size_ = 1.0;
+
+    // Run the visualization loop
     while (!visualizer.WasStopped()) {
         visualizer.UpdateGeometry();
         visualizer.PollEvents();
