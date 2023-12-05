@@ -4,7 +4,7 @@ void MapVisualizer::update() {
     displayRealTimeMap();
 }
 
-void MapVisualizer::display3dPoint(const open3d::geometry::PointCloud &point_cloud) {
+void MapVisualizer::display3dPoint() {
     open3d::visualization::Visualizer visualizer;
     visualizer.CreateVisualizerWindow("Real-Time Point Cloud Map", 1280, 720);
     // Add the point cloud to the visualizer
@@ -22,8 +22,7 @@ void MapVisualizer::display3dPoint(const open3d::geometry::PointCloud &point_clo
     }
 }
 
-
-void MapVisualizer::display2dPoint(const open3d::geometry::PointCloud &point_cloud) {
+void MapVisualizer::display2dPoint() {
     // Create a visualization window
     open3d::visualization::Visualizer visualizer;
     visualizer.CreateVisualizerWindow("Real-Time Point Cloud Map", 1280, 720);
@@ -52,18 +51,15 @@ void MapVisualizer::display2dPoint(const open3d::geometry::PointCloud &point_clo
 
 void MapVisualizer::switchMap(int type) {
     if (type == 2) {
-        // Switch to 2D point cloud visualization
-        std::cout << "Switching to 2D point cloud visualization..." << std::endl;
-        // Implement the 2D visualization logic here
+        display2dPoint();
     } else if (type == 3) {
-        // Switch to 3D point cloud visualization
-        std::cout << "Switching to 3D point cloud visualization..." << std::endl;
-        // Implement the 3D visualization logic here
+        display3dPoint();
     } else {
         // Handle invalid type
         std::cerr << "Invalid type. Cannot switch map." << std::endl;
     }
 }
+
     
 open3d::geometry::PointCloud visualizeRobotPose() {
         // Create a point cloud
