@@ -1,6 +1,9 @@
 #include "MapSubject.h"
 #include <Thirdparty/Open3D/Open3D.h>
 
+#define TWO_D_MAP 2
+#define THREE_D_MAP 3
+
 class MapVisualizer : public MapObserver {
 
 private:
