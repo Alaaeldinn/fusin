@@ -11,6 +11,4 @@ public:
     void display2dPoint();
     void switchMap(int type);
     open3d::geometry::PointCloud visualizeRobotPose();
-    void zoomIn();
-    void zoomOut();
 };
