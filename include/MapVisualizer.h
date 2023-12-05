@@ -5,7 +5,7 @@ public:
     void update() override;
     void displayRealTimeMap(const open3d::geometry::PointCloud &point_cloud);
     void switchMap(int type);
-    void visualizeRobotPose(double pose, double uncertainty);
+    open3d::geometry::PointCloud visualizeRobotPose()
     void zoomIn();
     void zoomOut();
 };
