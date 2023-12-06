@@ -87,6 +87,5 @@ open3d::geometry::PointCloud visualizeRobotPose() {
         return pointCloud;
     } catch (const std::exception &e) {
         std::cerr << "Error visualizing robot pose: " << e.what() << std::endl;
-        return open3d::geometry::PointCloud();  // Return an empty point cloud on error
     }
 }
