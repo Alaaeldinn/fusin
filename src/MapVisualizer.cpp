@@ -88,4 +88,25 @@ open3d::geometry::PointCloud visualizeRobotPose() {
     } catch (const std::exception &e) {
         std::cerr << "Error visualizing robot pose: " << e.what() << std::endl;
     }
+    
+}
+
+void MapVisualizer::displayMap(const std::string& pcd_file_path) {
+    // Read point cloud from PCD file
+    auto point_cloud = open3d::io::CreatePointCloudFromFile(pcd_file_path);
+
+    if (!point_cloud) {
+        std::cerr << "Error: Unable to read point cloud from file." << std::endl;
+        return;
+    }
+
+    // Visualization settings
+    open3d::visualization::Visualizer visualizer;
+    visualizer.CreateVisualizerWindow("Point Cloud Map", 1920, 1080);
+
+    // Add point cloud to the visualizer
+    visualizer.AddGeometry(point_cloud);
+
+    // Run the visualizer
+    visualizer.Run();
 }
