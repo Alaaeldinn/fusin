@@ -2,7 +2,7 @@
 
 void MapVisualizer::update() {
     try {
-        displayRealTimeMap();
+        switchMap(TWO_D_MAP);
     } catch (const std::exception &e) {
         std::cerr << "Error updating map: " << e.what() << std::endl;
     }
