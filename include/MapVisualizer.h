@@ -14,4 +14,5 @@ public:
     void display2dPoint();
     void switchMap(int type);
     open3d::geometry::PointCloud visualizeRobotPose();
+    void displayMap(const std::string& pcd_file_path)
 };
